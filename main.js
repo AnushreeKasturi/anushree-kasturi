@@ -1,11 +1,11 @@
 /* =====================================================================
-   CONFIG — every piece of content on the site lives here.
+   CONFIG: every piece of content on the site lives here.
    ===================================================================== */
 const CONFIG = {
   first: "Anushree",
   last: "Kasturi",
   roles: ["CS student", "ML builder", "full-stack dev", "hackathon regular", "problem solver"],
-  tagline: "CS student building things, breaking things, and learning along the way — across AI/ML, full-stack development and intelligent systems.",
+  tagline: "CS student building things, breaking things, and learning along the way, across AI/ML, full-stack development and intelligent systems.",
   status: "open to internships · B.Tech CSE @ Amrita '28",
   location: "Bengaluru, India",
   timezone: "Asia/Kolkata",
@@ -20,11 +20,11 @@ const CONFIG = {
     { label: "X / Twitter", url: "https://x.com/Anushree_kastur" },
   ],
   about: [
-    "Hi, I'm <b>Anushree</b> — a third-year <b>Computer Science</b> undergrad at <b>Amrita School of Engineering, Bengaluru</b>, building things, breaking things and <em>learning along the way</em>.",
-    "I build software across <b>AI/ML</b>, <b>full-stack development</b> and <b>intelligent systems</b> — turning ideas and real-world problems into working applications, from a Bayesian road-risk engine for Bengaluru to an ML-driven network controller.",
+    "Hi, I'm <b>Anushree</b>, a third-year <b>Computer Science</b> undergrad at <b>Amrita School of Engineering, Bengaluru</b>, building things, breaking things and <em>learning along the way</em>.",
+    "I build software across <b>AI/ML</b>, <b>full-stack development</b> and <b>intelligent systems</b>, turning ideas and real-world problems into working applications, from a Bayesian road-risk engine for Bengaluru to an ML-driven network controller.",
     "Outside of shipping projects you'll find me at <b>hackathons</b>, technical quizzes and coding challenges, sharpening both the theory and the practice.",
   ],
-  manifesto: "Most of what I know, I learned by *building* it — a risk engine for Bengaluru's roads, a network that reroutes itself, a detector that finds the intruder in a thousand lines of logs. I *break* things to understand them, and keep *learning* along the way.",
+  manifesto: "Most of what I know, I learned by *building* it: a risk engine for Bengaluru's roads, a network that reroutes itself, a detector that finds the intruder in a thousand lines of logs. I *break* things to understand them, and keep *learning* along the way.",
   stats: [
     { n: 9.12, suffix: "",   label: "CGPA · B.Tech CSE", decimals: 2 },
     { n: 6,    suffix: "",   label: "projects built" },
@@ -40,27 +40,27 @@ const CONFIG = {
   // art: life | plasma | rain | spiral | wave | bits     size: wide | full
   projects: [
     { title: "Find the Intruder", year: "2026", size: "wide", art: "bits", kind: "Intrusion detection · ALG-CYBER-01",
-      desc: "A log-forensics engine that buries attackers in ~1,000 lines of normal traffic — then finds them, correlates their events into one incident and rebuilds the kill chain.",
+      desc: "A log-forensics engine that buries attackers in ~1,000 lines of normal traffic, then finds them, correlates their events into one incident and rebuilds the kill chain.",
       details: [
         ["The problem", "Most intrusion detection emits a flood of isolated alerts. This engine scores every source, fuses related events into a single scored incident with a timeline, and reconstructs the attacker's kill chain with log-line evidence, MITRE ATT&CK mapping and recommended response actions."],
         ["What it catches", "Reconnaissance, brute force, credential stuffing, the success-after-failure compromise pivot, impossible travel, privilege escalation, sensitive-file access and data exfiltration."],
         ["How it's built", "A zero-dependency Python package + CLI is the engine; a single-file web console shares the same detection logic and runs the live demo entirely in the browser."],
       ],
-      highlights: ["23 tests in CI on Python 3.9 & 3.12", "Zero dependencies — pure stdlib", "Benign decoy never flagged", "3 attack scenarios built in"],
+      highlights: ["23 tests in CI on Python 3.9 & 3.12", "Zero dependencies, pure stdlib", "Benign decoy never flagged", "3 attack scenarios built in"],
       tags: ["Python", "JavaScript", "GitHub Actions", "MITRE ATT&CK"],
       code: "https://github.com/AnushreeKasturi/algothon", live: "https://anushreekasturi.github.io/algothon/" },
     { title: "PotholeRisk", year: "2026", size: "wide", art: "wave", kind: "Bengaluru dynamic risk engine",
       desc: "A real-time Bayesian road-risk dashboard for Bengaluru that combines live weather, traffic and pothole-density data to estimate driving risk.",
       details: [
-        ["The idea", "Potholes get dangerous when conditions change — rain, traffic, visibility. PotholeRisk turns live signals into a continuously updated risk estimate for the city's roads."],
-        ["Architecture", "The browser only ever talks to an Express server, which proxies the OpenWeather API with the key injected server-side — it never reaches the frontend, DevTools or network requests."],
+        ["The idea", "Potholes get dangerous when conditions change: rain, traffic, visibility. PotholeRisk turns live signals into a continuously updated risk estimate for the city's roads."],
+        ["Architecture", "The browser only ever talks to an Express server, which proxies the OpenWeather API with the key injected server-side, so it never reaches the frontend, DevTools or network requests."],
         ["Next up", "Computer-vision pothole detection, accident-probability prediction, route safety scoring and interactive GIS mapping."],
       ],
       highlights: ["Bayesian risk model", "API keys kept server-side", "Deployed on Render"],
       tags: ["Node.js", "Express", "JavaScript", "OpenWeather API"],
       code: "https://github.com/AnushreeKasturi/Potholerisk", live: "https://potholerisk.onrender.com" },
     { title: "AI-SDN Traffic", year: "2026", art: "spiral", kind: "ML-guided adaptive routing",
-      desc: "A simulated SDN controller that classifies flows, forecasts congestion and reroutes traffic — benchmarked against static routing.",
+      desc: "A simulated SDN controller that classifies flows, forecasts congestion and reroutes traffic, benchmarked against static routing.",
       details: [
         ["The problem", "Static routing never reacts to load: if the shortest path congests, every new flow still piles onto it while a slightly longer path sits idle."],
         ["The approach", "A Random Forest classifies traffic (voice / video / web / bulk), a Random Forest regressor forecasts each link's next-interval utilization, and the controller runs Dijkstra with load- and forecast-aware weights before pushing flow rules."],
@@ -70,19 +70,19 @@ const CONFIG = {
       tags: ["Python", "scikit-learn", "NetworkX", "Mininet"],
       code: "https://github.com/AnushreeKasturi/AI-SDN-Traffic-Management" },
     { title: "Student Performance Predictor", year: "2026", art: "plasma", kind: "Deployed ML web app",
-      desc: "Predicts academic scores from attendance, study hours, internals and assignments — with auth, history and analytics.",
+      desc: "Predicts academic scores from attendance, study hours, internals and assignments, with auth, history and analytics.",
       details: [
         ["What it does", "Takes attendance, study hours, internal marks and assignment scores, and predicts a final score with a scikit-learn linear regression model."],
-        ["The app around the model", "Signup and login with Werkzeug password hashing, per-user prediction history in SQLite, and Plotly trendline dashboards — deployed end-to-end on Render."],
+        ["The app around the model", "Signup and login with Werkzeug password hashing, per-user prediction history in SQLite, and Plotly trendline dashboards, deployed end-to-end on Render."],
       ],
       highlights: ["End-to-end: model → app → deploy", "Hashed-password auth", "Interactive Plotly analytics"],
       tags: ["Python", "Flask", "scikit-learn", "SQLite", "Plotly"],
       code: "https://github.com/AnushreeKasturi/student-performance-predictor", live: "https://student-performance-predictor-1mlt.onrender.com" },
     { title: "Heritage Explorer", year: "2026", art: "life", kind: "Virtual museum platform",
-      desc: "An interactive virtual museum for five of India's most renowned museums — galleries, ticket booking and dark mode.",
+      desc: "An interactive virtual museum for five of India's most renowned museums, with galleries, ticket booking and dark mode.",
       details: [
         ["Overview", "Brings India's cultural heritage onto one platform: dedicated pages for CSMVS Mumbai, Victoria Memorial, the Indian Museum, Government Museum Chennai and Salar Jung Museum."],
-        ["Built for", "Accessibility and engagement — interactive galleries, a ticket-booking and payment-selection flow, dark mode and fully responsive layouts, with each museum as its own modular page."],
+        ["Built for", "Accessibility and engagement: interactive galleries, a ticket-booking and payment-selection flow, dark mode and fully responsive layouts, with each museum as its own modular page."],
       ],
       highlights: ["5 museums, themed per museum", "Ticket-booking simulation", "Responsive + dark mode"],
       tags: ["HTML", "CSS", "JavaScript"],
@@ -94,32 +94,32 @@ const CONFIG = {
         ["Design", "Logistic regression vs. binary SVM, each trained with financial-only and financial + sentiment features, reporting accuracy, precision, recall, F1 and confusion matrices from actual runs only."],
         ["Stack", "HDFS for storage, Hive for the warehouse, Scala for cleaning, name matching and sentiment scoring, and the Spark RDD API + MLlib for distributed compute and models."],
       ],
-      highlights: ["2×2 controlled experiment", "Scala + Spark RDD pipeline", "No fabricated numbers — results from real runs"],
+      highlights: ["2×2 controlled experiment", "Scala + Spark RDD pipeline", "No fabricated numbers, only results from real runs"],
       tags: ["Scala", "Apache Spark", "Hive", "MLlib", "HDFS"],
       code: "https://github.com/AnushreeKasturi/bda_endsem" },
   ],
   experience: [
-    { hash: "a1f9c2e", ref: "HEAD -> now", role: "B.Tech, Computer Science", org: "Amrita School of Engineering, Bengaluru", when: "2024 — 2028 · CGPA 9.12",
-      desc: "Third year. Data structures & algorithms, machine learning, computer networks, big-data analytics — and a lot of building on the side." },
+    { hash: "a1f9c2e", ref: "HEAD -> now", role: "B.Tech, Computer Science", org: "Amrita School of Engineering, Bengaluru", when: "2024 – 2028 · CGPA 9.12",
+      desc: "Third year. Data structures & algorithms, machine learning, computer networks, big-data analytics, and a lot of building on the side." },
     { hash: "7b3e0d4", ref: "", role: "Software Engineering Job Simulation", org: "JPMorgan Chase & Co. · Forage", when: "Jul 2026",
-      desc: "Built project setup, Kafka integration, H2 persistence and a REST API controller — a hands-on pass through backend and event-driven design." },
+      desc: "Built project setup, Kafka integration, H2 persistence and a REST API controller: a hands-on pass through backend and event-driven design." },
     { hash: "3d72b9f", ref: "", role: "Generative AI in Action", org: "IBM SkillsBuild", when: "Feb 2026",
       desc: "Large language models and retrieval-augmented generation, with a focus on real-world application patterns." },
     { hash: "c90d11a", ref: "tag: 5th-place", role: "The Night Shift Startathon 2025", org: "ACE & AMAL Club, Amrita", when: "Aug 2025",
       desc: "Placed 5th at a university hackathon focused on building innovative technology solutions under time pressure." },
-    { hash: "0e4f8b2", ref: "init", role: "High School, Computer Science", org: "The Amaatra Academy", when: "2022 — 2024 · 90.4%",
+    { hash: "0e4f8b2", ref: "init", role: "High School, Computer Science", org: "The Amaatra Academy", when: "2022 – 2024 · 90.4%",
       desc: "Where the first lines of code were written." },
   ],
   honors: [
     { rank: "5th place", title: "The Night Shift Startathon 2025", org: "ACE & AMAL Club, Amrita Vishwa Vidyapeetham", when: "Aug 2025", type: "hackathon",
       desc: "University hackathon focused on developing innovative technology solutions." },
     { rank: "certificate", title: "Software Engineering Job Simulation", org: "JPMorgan Chase & Co. · Forage", when: "Jul 2026", type: "certification",
-      desc: "Kafka integration, H2 persistence and a REST API controller — backend and event-driven design." },
+      desc: "Kafka integration, H2 persistence and a REST API controller, covering backend and event-driven design." },
     { rank: "certificate", title: "Generative AI in Action", org: "IBM SkillsBuild", when: "Feb 2026", type: "certification",
       desc: "LLMs and retrieval-augmented generation with real-world application patterns." },
     { rank: "certificate", title: "Python", org: "Kaggle", when: "2026", type: "course",
-      desc: "Fundamentals through real-world problem-solving exercises — the base layer for everything since." },
-    { rank: "9.12 CGPA", title: "B.Tech, Computer Science", org: "Amrita School of Engineering, Bengaluru", when: "2024 — 2028", type: "academics",
+      desc: "Fundamentals through real-world problem-solving exercises. The base layer for everything since." },
+    { rank: "9.12 CGPA", title: "B.Tech, Computer Science", org: "Amrita School of Engineering, Bengaluru", when: "2024 – 2028", type: "academics",
       desc: "Consistent academic performance alongside projects, hackathons and competitions." },
   ],
   now: {
@@ -157,7 +157,7 @@ function animate(el, fps, fn) {
   new IntersectionObserver(([e]) => { vis = e.isIntersecting; if (vis && !raf) raf = requestAnimationFrame(tick); }).observe(el);
 }
 
-const GLYPHS = "!<>-_\\/[]{}—=+*^?#01";
+const GLYPHS = "!<>-_\\/[]{}=+*^?#01";
 function scramble(el, text = el.dataset.text || el.textContent, dur = 900, done) {
   el.dataset.text = text;
   if (REDUCED) { el.textContent = text; done?.(); return; }
@@ -201,7 +201,7 @@ const lockScroll = on => { if (lenis) on ? lenis.stop() : lenis.start(); documen
 /* =====================================================================
    fill content
    ===================================================================== */
-document.title = `${fullName} — CS Student · Engineer · Builder`;
+document.title = `${fullName} · CS Student · Engineer · Builder`;
 $("#first").textContent = CONFIG.first;
 $("#last").textContent = CONFIG.last;
 $(".hero-name").setAttribute("aria-label", fullName);
@@ -318,7 +318,7 @@ if (FINE && !REDUCED) {
   const heads = $$(".sec-head[data-n]"), totop = $("#totop"), ring = $("#totop-ring");
   const mf = $("#manifesto"), mfBar = $("#mf-bar"), hz = $("#honors"), track = $("#hz-track"), hzI = $("#hz-i");
   const words = CONFIG.manifesto.split(" ").map(w => {
-    const k = /^\*.*\*[.,—]?$/.test(w);
+    const k = /^\*.*\*[.,:]?$/.test(w);
     return `<span${k ? ' class="k"' : ""}>${esc(w.replace(/\*/g, ""))}</span>`;
   });
   $("#mf-text").innerHTML = words.join(" ");
@@ -372,7 +372,7 @@ if (FINE && !REDUCED) {
     const t = fmt.format(new Date()), h = +t.slice(0, 2);
     clock.textContent = `${t} IST`;
     nowClock.innerHTML = `${t.slice(0, 5)}<small>IST</small>`;
-    mood.textContent = h < 6 ? "probably asleep — or debugging something." : h < 12 ? "morning — classes & coffee." : h < 18 ? "deep-work hours." : "shipping side projects.";
+    mood.textContent = h < 6 ? "probably asleep, or debugging something." : h < 12 ? "morning: classes & coffee." : h < 18 ? "deep-work hours." : "shipping side projects.";
   };
   tick(); setInterval(tick, 1000);
 }
@@ -696,7 +696,7 @@ function showTab(name) {
 $(".lab-tabs").addEventListener("click", e => { const b = e.target.closest("button"); if (b) showTab(b.dataset.tab); });
 
 /* =====================================================================
-   lab 01 — neural network trained live in the browser
+   lab 01 · neural network trained live in the browser
    ===================================================================== */
 const NN = (() => {
   const plot = $("#nn-plot"), pctx = plot.getContext("2d"), netc = $("#nn-net"), nctx = netc.getContext("2d");
@@ -820,8 +820,8 @@ const NN = (() => {
   }
   function stats() {
     $("#nn-ep").textContent = epoch;
-    $("#nn-loss").textContent = epoch ? lastLoss.toFixed(3) : "—";
-    $("#nn-acc").textContent = epoch ? (lastAcc * 100).toFixed(1) + "%" : "—";
+    $("#nn-loss").textContent = epoch ? lastLoss.toFixed(3) : "-";
+    $("#nn-acc").textContent = epoch ? (lastAcc * 100).toFixed(1) + "%" : "-";
     if (epoch) { hist.push(lastLoss); if (hist.length > 60) hist.shift(); }
     const BL = "▁▂▃▄▅▆▇█", mx = Math.max(...hist, 0.01);
     $("#nn-spark").textContent = "loss " + hist.map(v => BL[Math.min(7, Math.round(v / mx * 7))]).join("");
@@ -858,7 +858,7 @@ const NN = (() => {
 })();
 
 /* =====================================================================
-   lab 02 — pathfinding
+   lab 02 · pathfinding
    ===================================================================== */
 const PF = (() => {
   const cv = $("#pf"), ctx = cv.getContext("2d");
@@ -892,7 +892,7 @@ const PF = (() => {
     }
     return null;
   }
-  const resetRun = () => { visitAt.fill(-1); path = []; pathShown = 0; it = null; tick = 0; running = false; $("#pf-vis").textContent = 0; $("#pf-len").textContent = "—"; $("#pf-run").textContent = "find path ▶"; };
+  const resetRun = () => { visitAt.fill(-1); path = []; pathShown = 0; it = null; tick = 0; running = false; $("#pf-vis").textContent = 0; $("#pf-len").textContent = "-"; $("#pf-run").textContent = "find path ▶"; };
   function run() {
     resetRun(); it = search(algo); running = true;
     $("#pf-run").textContent = "searching…";
@@ -961,7 +961,7 @@ const PF = (() => {
         if (r.done) {
           running = false; it = null;
           if (r.value) { path = r.value; $("#pf-len").textContent = path.length - 1; }
-          else { $("#pf-len").textContent = "no path"; $("#pf-run").textContent = "find path ▶"; toast("no path — the walls win this time"); }
+          else { $("#pf-len").textContent = "no path"; $("#pf-run").textContent = "find path ▶"; toast("no path: the walls win this time"); }
           break;
         }
         visitAt[r.value] = tick; visited = visitAt.reduce((s, v) => s + (v >= 0), 0);
@@ -981,7 +981,7 @@ const PF = (() => {
 })();
 
 /* =====================================================================
-   lab 03 — sorting
+   lab 03 · sorting
    ===================================================================== */
 const SORT = (() => {
   const view = $("#sortview"), N = 36, ROWS = 12, EIGHTHS = " ▁▂▃▄▅▆▇█";
@@ -1135,7 +1135,7 @@ const SORT = (() => {
   $("#gh-stats").innerHTML = [
     [total.toLocaleString(), "contributions"], [active, "active days"], [longest + "d", "longest streak"], [bestDay.count, `best day · ${fmt(bestDay)}`],
   ].map(([b, l]) => `<div><b>${b}</b>${l}</div>`).join("");
-  if (!live) $("#gh-stats").insertAdjacentHTML("afterend", `<p class="mono dim" style="font-size:11px;margin-top:10px">// couldn't reach the contributions API — showing demo data</p>`);
+  if (!live) $("#gh-stats").insertAdjacentHTML("afterend", `<p class="mono dim" style="font-size:11px;margin-top:10px">// couldn't reach the contributions API, showing demo data</p>`);
 
   new IntersectionObserver(([e], o) => { if (e.isIntersecting) { gh.classList.add("in"); o.disconnect(); } }, { threshold: 0.3 }).observe(gh);
 
@@ -1176,8 +1176,8 @@ let openTerm;
     matrix: "you know what this does", date: "current date", clear: "clear the screen",
   };
   const CMDS = {
-    help: () => Object.entries(HELP).map(([k, v]) => `<span class="acc">${k.padEnd(14)}</span>${v}`).join("\n") + `\n\n<span class="dim">psst — try 'sudo hire-me'</span>`,
-    whoami: () => `${esc(fullName)} — ${CONFIG.roles.slice(0, 3).map(esc).join(" · ")}\n${esc(CONFIG.tagline)}`,
+    help: () => Object.entries(HELP).map(([k, v]) => `<span class="acc">${k.padEnd(14)}</span>${v}`).join("\n") + `\n\n<span class="dim">psst, try 'sudo hire-me'</span>`,
+    whoami: () => `${esc(fullName)} · ${CONFIG.roles.slice(0, 3).map(esc).join(" · ")}\n${esc(CONFIG.tagline)}`,
     neofetch: () => {
       const logo = ["   ▄▄▄▄▄▄▄   ", "  █ ▄▀▀▀▄ █  ", "  █ █▄▄▄█ █  ", "  █ █   █ █  ", "  █▄▄▄▄▄▄▄█  ", "    a k _    ", "             ", "             "];
       const info = [
@@ -1219,10 +1219,10 @@ let openTerm;
     const [cmd, ...rest] = line.split(/\s+/);
     if (cmd === "rm") return print(`<span class="err">nice try 🙂</span>`);
     const f = CMDS[cmd.toLowerCase()];
-    const res = f ? f(rest.join(" ")) : `<span class="err">command not found: ${esc(cmd)}</span> — type <span class="acc">help</span>`;
+    const res = f ? f(rest.join(" ")) : `<span class="err">command not found: ${esc(cmd)}</span>. Type <span class="acc">help</span>`;
     if (res != null) print(res);
   };
-  print(`<span class="dim">anushree-os v2.0 (tty1) — last login: ${new Date().toDateString()}</span>\nType <span class="acc">help</span> to get started.`);
+  print(`<span class="dim">anushree-os v2.0 (tty1) · last login: ${new Date().toDateString()}</span>\nType <span class="acc">help</span> to get started.`);
   input.addEventListener("keydown", e => {
     if (e.key === "Enter") { exec(input.value); input.value = ""; }
     else if (e.key === "ArrowUp") { e.preventDefault(); if (hi > 0) input.value = hist[--hi]; }
@@ -1266,7 +1266,7 @@ function renderPal() {
     if (it.g !== g && !q) { g = it.g; html += `<li class="grp">${esc(g)}</li>`; }
     html += `<li class="it${i === palSel ? " sel" : ""}" data-i="${i}"><span>${esc(it.l)}</span><span class="h">${esc(it.h || "")}</span></li>`;
   });
-  palList.innerHTML = html || `<li class="empty">no matches — try "maze" or "email"</li>`;
+  palList.innerHTML = html || `<li class="empty">no matches. Try "maze" or "email"</li>`;
   palList.querySelector(".sel")?.scrollIntoView({ block: "nearest" });
 }
 function openPalette() { if (!ov.hidden) closeProject(); pal.hidden = false; palIn.value = ""; palSel = 0; renderPal(); lockScroll(true); palIn.focus(); }
@@ -1404,7 +1404,7 @@ function start() {
     "[<b> OK </b>] starting curiosity.service",
     "[<b> OK </b>] loading weights: neural_nets.pt",
     "[<b> OK </b>] linking libdsa.so",
-    "[<b> OK </b>] compiling projects — 0 warnings",
+    "[<b> OK </b>] compiling projects: 0 warnings",
     `[<b> .. </b>] booting portfolio :: ${esc(fullName.toLowerCase())}`,
   ];
   let i = 0;

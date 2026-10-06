@@ -1,5 +1,5 @@
 # Checks the site, then deploys it to GitHub Pages.
-# Uses only the built-in GITHUB_TOKEN — nothing here depends on who owns the repo.
+# Uses only the built-in GITHUB_TOKEN, so nothing here depends on who owns the repo.
 name: deploy
 
 on:

@@ -1,4 +1,4 @@
-# Anushree Kasturi — Portfolio
+# Anushree Kasturi · Portfolio
 
 Static site (HTML/CSS/JS, no build step) hosted on GitHub Pages.
 
