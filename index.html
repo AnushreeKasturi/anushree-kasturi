@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anushree Kasturi — CS Student · Engineer · Builder</title>
+<meta name="description" content="Portfolio of Anushree Kasturi — computer science student working on AI, machine learning and algorithms.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="Anushree Kasturi — CS Student · Engineer · Builder">
+<meta property="og:description" content="AI / ML · DSA · building things that think.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230a0a0a'/><text x='50' y='66' font-family='monospace' font-size='46' font-weight='700' text-anchor='middle' fill='%23d1ff4a'>ak_</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- boot screen -->
+<div id="boot" aria-hidden="true"><pre id="boot-log"></pre></div>
+
+<div class="cursor" aria-hidden="true"><span class="c-dot"></span><span class="c-ring"><span class="c-label"></span></span></div>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#top" class="logo mono" data-hover>ak<span class="acc blink">_</span></a>
+  <nav class="links mono">
+    <a href="#about"><i>01</i>about</a>
+    <a href="#work"><i>02</i>work</a>
+    <a href="#lab"><i>03</i>lab</a>
+    <a href="#activity"><i>04</i>activity</a>
+    <a href="#contact"><i>05</i>contact</a>
+  </nav>
+  <div class="nav-right mono">
+    <span class="clock" id="clock">--:--:--</span>
+    <button class="kbd" id="open-term" data-hover title="Open terminal">⌘K</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="hero-grid wrap">
+      <div class="hero-copy">
+        <p class="chip mono"><span class="pulse"></span><span id="status"></span></p>
+        <h1 class="hero-name">
+          <span class="line"><span id="first" data-scramble></span></span>
+          <span class="line serif"><span id="last"></span><span class="acc">.</span></span>
+        </h1>
+        <p class="roles mono"><span class="dim">~/</span><span class="acc">$</span> <span id="role"></span><span class="caret">▍</span></p>
+        <p class="tagline" id="tagline"></p>
+        <div class="cta">
+          <a href="#work" class="btn primary magnetic" data-hover><span>see the work</span><span class="arr">↓</span></a>
+          <a href="#contact" class="btn magnetic" data-hover><span>say hello</span><span class="arr">↗</span></a>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <pre id="shape" aria-label="Rotating ASCII 3D shape — click to morph"></pre>
+        <figcaption class="mono"><span>fig.01 — <b id="shape-name">torus</b></span><span class="dim">click to morph · drag to spin</span></figcaption>
+      </figure>
+    </div>
+    <div class="hero-foot wrap mono">
+      <span><span class="dim">loc</span> <span id="loc"></span></span>
+      <span class="scroll-hint">scroll <span class="line-anim"></span></span>
+      <span><span class="dim">lat</span> <span id="fps">60fps</span></span>
+    </div>
+  </section>
+
+  <div class="marquee mono" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="wrap section">
+    <div class="sec-head" data-reveal>
+      <span class="idx mono">01</span>
+      <h2><span data-scramble>About</span> <em class="serif">me</em></h2>
+      <span class="note mono">// whoami</span>
+    </div>
+    <div class="about-grid">
+      <div class="window frame" data-reveal>
+        <div class="win-bar mono"><i></i><i></i><i></i><span>~/anushree/about.md</span></div>
+        <div class="win-body">
+          <p class="mono dim">$ cat about.md</p>
+          <div id="about-text" class="about-text"></div>
+        </div>
+      </div>
+      <div class="stats" id="stats"></div>
+    </div>
+
+    <div class="skills" id="skills"></div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="wrap section">
+    <div class="sec-head" data-reveal>
+      <span class="idx mono">02</span>
+      <h2><span data-scramble>Selected</span> <em class="serif">work</em></h2>
+      <span class="note mono">// built, broken & rebuilt</span>
+    </div>
+    <div class="projects" id="projects"></div>
+
+    <div class="sec-head small" data-reveal>
+      <span class="idx mono">02.1</span>
+      <h3>git log <em class="serif">--experience</em></h3>
+    </div>
+    <div class="gitlog mono" id="gitlog"></div>
+  </section>
+
+  <!-- ============ LAB ============ -->
+  <section id="lab" class="wrap section">
+    <div class="sec-head" data-reveal>
+      <span class="idx mono">03</span>
+      <h2><span data-scramble>Algorithm</span> <em class="serif">lab</em></h2>
+      <span class="note mono">// because DSA is more fun when you can watch it</span>
+    </div>
+    <div class="lab frame" data-reveal>
+      <div class="lab-top">
+        <div class="seg mono" id="algos" role="tablist"></div>
+        <div class="lab-ctl mono">
+          <label>speed <input type="range" id="speed" min="1" max="24" value="6"></label>
+          <button class="btn sm" id="shuffle" data-hover>shuffle</button>
+          <button class="btn sm primary" id="run" data-hover>run ▶</button>
+        </div>
+      </div>
+      <pre class="sortview" id="sortview" aria-label="Sorting visualizer"></pre>
+      <div class="lab-stats mono">
+        <span><span class="dim">algo</span> <b id="s-name">quick sort</b></span>
+        <span><span class="dim">time</span> <b id="s-big">O(n log n)</b></span>
+        <span><span class="dim">comparisons</span> <b id="s-cmp">0</b></span>
+        <span><span class="dim">writes</span> <b id="s-swp">0</b></span>
+        <span class="legend"><i class="cm"></i>compare <i class="sw"></i>write</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTIVITY ============ -->
+  <section id="activity" class="wrap section">
+    <div class="sec-head" data-reveal>
+      <span class="idx mono">04</span>
+      <h2><span data-scramble>Shipping</span> <em class="serif">log</em></h2>
+      <span class="note mono">// consistency &gt; intensity</span>
+    </div>
+    <div class="gh frame" data-reveal>
+      <div class="gh-head">
+        <h3>GitHub Activity</h3>
+        <span class="gh-total" id="gh-total">loading…</span>
+      </div>
+      <div class="gh-scroll">
+        <div class="gh-inner">
+          <div class="gh-months" id="gh-months"></div>
+          <div class="gh-grid" id="gh-grid"></div>
+        </div>
+      </div>
+      <div class="gh-foot">
+        <span>Less active</span>
+        <span class="gh-legend"><i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>More active</span></span>
+      </div>
+      <div class="gh-stats mono" id="gh-stats"></div>
+      <div class="gh-tip" id="gh-tip" role="tooltip"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="wrap section">
+    <div class="sec-head" data-reveal>
+      <span class="idx mono">05</span>
+      <h2><span data-scramble>Contact</span></h2>
+      <span class="note mono">// open to internships & collaborations</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-copy" data-reveal>
+        <p class="big">Let's build something <em class="serif acc">remarkable</em>.</p>
+        <button class="email magnetic" id="email" data-hover data-label="copy">
+          <span id="email-text"></span><span class="mono copied" id="copied">copied ✓</span>
+        </button>
+        <ul class="socials mono" id="socials"></ul>
+      </div>
+      <div class="terminal frame" id="terminal" data-reveal>
+        <div class="win-bar mono"><i></i><i></i><i></i><span>guest@anushree: ~</span></div>
+        <div class="term-out mono" id="term-out"></div>
+        <label class="term-line mono"><span class="acc">guest@anushree</span>:<span class="blue">~</span>$&nbsp;<input id="term-in" autocomplete="off" spellcheck="false" aria-label="Terminal input"></label>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <pre id="ascii-name" aria-hidden="true"></pre>
+  <div class="foot-row wrap mono">
+    <span>© <span id="year"></span> <span id="foot-name"></span></span>
+    <span class="dim">hand-built with html, css &amp; too much chai</span>
+    <a href="#top" data-hover>back to top ↑</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
