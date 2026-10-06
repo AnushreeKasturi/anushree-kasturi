@@ -1092,7 +1092,8 @@ const SORT = (() => {
   if (CONFIG.github) {
     try {
       const r = await fetch(`https://github-contributions-api.jogruber.de/v4/${encodeURIComponent(CONFIG.github)}?y=last`);
-      if (r.ok) { days = (await r.json()).contributions.map(d => ({ date: d.date, count: d.count })); live = true; }
+      // external data: keep only well-formed dates and numeric counts before anything touches the DOM
+      if (r.ok) { days = (await r.json()).contributions.filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d.date)).map(d => ({ date: d.date, count: Math.max(0, Math.floor(+d.count) || 0) })); live = true; }
     } catch {}
   }
   if (!days?.length) {
