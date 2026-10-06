@@ -316,7 +316,7 @@ if (FINE && !REDUCED) {
 {
   const nav = $(".nav"), bar = $(".progress"), copy = $("#hero-copy"), art = $("#hero-art");
   const heads = $$(".sec-head[data-n]"), totop = $("#totop"), ring = $("#totop-ring");
-  const mf = $("#manifesto"), mfBar = $("#mf-bar"), hz = $("#honors"), track = $("#hz-track"), hzI = $("#hz-i");
+  const mfText = $("#mf-text"), hz = $("#honors"), track = $("#hz-track"), hzI = $("#hz-i");
   const words = CONFIG.manifesto.split(" ").map(w => {
     const k = /^\*.*\*[.,—]?$/.test(w);
     return `<span${k ? ' class="k"' : ""}>${esc(w.replace(/\*/g, ""))}</span>`;
@@ -347,10 +347,10 @@ if (FINE && !REDUCED) {
         const r = h.getBoundingClientRect();
         if (r.bottom > -200 && r.top < vh + 200) h.style.setProperty("--gy", `${(r.top - vh / 2) * -0.18}px`);
       }
-      const mr = mf.getBoundingClientRect(), mp = Math.min(1, Math.max(0, -mr.top / (mr.height - vh)));
-      const lit = Math.floor(mp * 1.15 * wEls.length);
+      // words brighten as the paragraph travels from the bottom of the screen to its middle
+      const mr = mfText.getBoundingClientRect(), mp = Math.min(1, Math.max(0, (vh - mr.top) / (vh * 0.55 + mr.height * 0.5)));
+      const lit = Math.floor(mp * wEls.length);
       wEls.forEach((w, i) => w.classList.toggle("on", i < lit));
-      mfBar.style.transform = `scaleX(${mp})`;
     }
     const hr = hz.getBoundingClientRect(), hp = Math.min(1, Math.max(0, -hr.top / (hr.height - vh)));
     const max = track.scrollWidth - innerWidth;

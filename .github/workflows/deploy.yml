@@ -1,0 +1,52 @@
+# Checks the site, then deploys it to GitHub Pages.
+# Uses only the built-in GITHUB_TOKEN — nothing here depends on who owns the repo.
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: JavaScript parses
+        run: node --check main.js
+      - name: Every local file index.html references exists
+        run: |
+          grep -oE '(src|href)="[^"#]+"' index.html | sed -E 's/^[a-z]+="//; s/"$//' \
+            | grep -vE '^(https?:|mailto:|data:)' \
+            | while read -r f; do test -f "$f" || { echo "missing: $f"; exit 1; }; done
+
+  deploy:
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Stage site files
+        run: mkdir _site && cp index.html style.css main.js .nojekyll _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
