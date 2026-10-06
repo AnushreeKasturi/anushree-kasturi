@@ -318,14 +318,17 @@ input[type=range]{accent-color:var(--acc);width:110px}
 .sec-head[data-n]::after{content:attr(data-n);position:absolute;right:0;bottom:-.1em;font:700 clamp(120px,20vw,260px)/1 var(--sans);letter-spacing:-.06em;
   color:transparent;-webkit-text-stroke:1px #222;z-index:-1;pointer-events:none;translate:0 var(--gy,0px)}
 
-/* ---------- manifesto (quiet scroll reveal) ---------- */
-.manifesto{padding-block:clamp(90px,12vw,150px) 0}
-.kick{font-size:12px;color:var(--dim);margin-bottom:22px;text-transform:lowercase}
-.mf-text{font-size:clamp(20px,2.3vw,30px);font-weight:400;letter-spacing:-.015em;line-height:1.5;max-width:46ch}
-.mf-text span{color:#3a3a3a;transition:color .6s}
-.mf-text span.on{color:var(--mute)}
-.mf-text span.k{font-family:var(--serif);font-style:italic;font-size:1.08em}
-.mf-text span.k.on{color:var(--fg)}
+/* ---------- manifesto (pinned word reveal) ---------- */
+.manifesto{height:260vh;position:relative;margin-top:clamp(90px,13vw,160px)}
+.manifesto .pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.kick{font-size:12px;color:var(--mute);margin-bottom:28px;text-transform:lowercase}
+.mf-text{font-size:clamp(28px,4.4vw,62px);font-weight:500;letter-spacing:-.035em;line-height:1.12;max-width:20ch;max-width:min(100%,1100px)}
+.mf-text span{color:#262626;transition:color .35s}
+.mf-text span.on{color:var(--fg)}
+.mf-text span.k.on{color:var(--acc);font-family:var(--serif);font-style:italic;font-weight:400}
+.mf-text span.k{font-family:var(--serif);font-style:italic;font-weight:400}
+.mf-bar{margin-top:40px;height:1px;background:var(--line-2);max-width:280px}
+.mf-bar i{display:block;height:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
 
 /* ---------- honors (horizontal pinned) ---------- */
 .hz{position:relative;margin-top:110px}
@@ -479,5 +482,6 @@ input[type=range]{accent-color:var(--acc);width:110px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   [data-reveal]{opacity:1;translate:none}
-  .mf-text span{color:var(--mute)}
+  .manifesto{height:auto}.manifesto .pin{position:static;height:auto;padding-block:80px}
+  .mf-text span{color:var(--fg)}
 }
