@@ -142,7 +142,7 @@ const mouse = { x: -9999, y: -9999 };
 addEventListener("pointermove", e => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
 const ext = url => url && url !== "#" ? ' target="_blank" rel="noopener"' : "";
 const fullName = `${CONFIG.first} ${CONFIG.last}`;
-const ACC = "209,255,74", BLUE = "122,162,255";
+const ACC = "185,223,165", BLUE = "169,164,232";
 
 // Run fn(seconds) at ~fps only while el is on screen.
 function animate(el, fps, fn) {
@@ -445,7 +445,7 @@ function countUp(el) {
       v = (v + 3) / 6 * 0.75 + near * 0.9;
       const i = Math.min(RAMP.length - 1, (v * RAMP.length) | 0);
       if (i < 2) continue;
-      ctx.fillStyle = near > 0.25 ? `rgba(${ACC},${0.25 + near * 0.6})` : `rgba(237,237,237,${0.05 + v * 0.12})`;
+      ctx.fillStyle = near > 0.25 ? `rgba(${ACC},${0.25 + near * 0.6})` : `rgba(233,236,230,${0.05 + v * 0.12})`;
       ctx.fillText(RAMP[i], x * CW, y * CH);
     }
   });
@@ -786,11 +786,11 @@ const NN = (() => {
     for (const [x, y, c] of data) {
       pctx.beginPath(); pctx.arc((x + 1) / 2 * w, (1 - y) / 2 * h, Math.max(2.5, w / 150), 0, 6.283);
       pctx.fillStyle = c ? `rgb(${ACC})` : `rgb(${BLUE})`; pctx.fill();
-      pctx.lineWidth = 1.5; pctx.strokeStyle = "#0a0a0a"; pctx.stroke();
+      pctx.lineWidth = 1.5; pctx.strokeStyle = "#0a0b0a"; pctx.stroke();
     }
     if (probe) {
       const px = (probe[0] + 1) / 2 * w, py = (1 - probe[1]) / 2 * h;
-      pctx.strokeStyle = "rgba(237,237,237,.6)"; pctx.lineWidth = 1;
+      pctx.strokeStyle = "rgba(233,236,230,.6)"; pctx.lineWidth = 1;
       pctx.beginPath(); pctx.moveTo(px, 0); pctx.lineTo(px, h); pctx.moveTo(0, py); pctx.lineTo(w, py); pctx.stroke();
     }
   }
@@ -924,7 +924,7 @@ const PF = (() => {
       if (walls[i]) { ctx.fillStyle = "#2e2e2e"; ctx.fillRect(px + .5, py + .5, cs - 1, cs - 1); continue; }
       if (i === S || i === E) {
         ctx.fillStyle = `rgb(${ACC})`; ctx.fillRect(px + .5, py + .5, cs - 1, cs - 1);
-        ctx.fillStyle = "#0a0a0a"; ctx.fillText(i === S ? "S" : "E", px + cs / 2, py + cs / 2 + 1); continue;
+        ctx.fillStyle = "#0a0b0a"; ctx.fillText(i === S ? "S" : "E", px + cs / 2, py + cs / 2 + 1); continue;
       }
       if (onPath.has(i)) { ctx.fillStyle = `rgb(${ACC})`; ctx.fillRect(px + cs * .2, py + cs * .2, cs * .6, cs * .6); continue; }
       if (visitAt[i] >= 0) {
@@ -1191,7 +1191,7 @@ let openTerm;
     skills: () => CONFIG.skills.map(g => `<span class="acc">${esc(g.group)}</span>\n  ${g.items.map(esc).join(", ")}`).join("\n"),
     projects: () => CONFIG.projects.map((p, i) => `<span class="dim">[${i + 1}]</span> <span class="acc">${esc(p.title)}</span>\n    ${esc(p.tags.join(", "))}`).join("\n") + `\n\n<span class="dim">type 'open 1' to see one in detail</span>`,
     open: a => { const i = parseInt(a) - 1; if (!CONFIG.projects[i]) return `<span class="err">usage: open &lt;1-${CONFIG.projects.length}&gt;</span>`; setTimeout(() => openProject(i), 250); return `opening ${esc(CONFIG.projects[i].title)}…`; },
-    experience: () => CONFIG.experience.map(x => `<span style="color:#e5c07b">${esc(x.hash)}</span> ${esc(x.role)} @ ${esc(x.org)} <span class="dim">(${esc(x.when)})</span>`).join("\n"),
+    experience: () => CONFIG.experience.map(x => `<span style="color:#d9c89a">${esc(x.hash)}</span> ${esc(x.role)} @ ${esc(x.org)} <span class="dim">(${esc(x.when)})</span>`).join("\n"),
     contact: () => `email  ${link("mailto:" + CONFIG.email, CONFIG.email)}\nloc    ${esc(CONFIG.location)}`,
     socials: () => CONFIG.socials.map(s => `${esc(s.label.toLowerCase()).padEnd(14)}${link(s.url)}`).join("\n"),
     goto: a => {
@@ -1300,7 +1300,7 @@ function matrix() {
   cv.classList.add("on");
   const t0 = performance.now();
   (function f(now) {
-    ctx.fillStyle = "rgba(10,10,10,.12)"; ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = "rgba(10,11,10,.12)"; ctx.fillRect(0, 0, cv.width, cv.height);
     ctx.font = `${fs}px ui-monospace, monospace`;
     drops.forEach((y, i) => {
       ctx.fillStyle = Math.random() < .05 ? "#fff" : `rgb(${ACC})`;
