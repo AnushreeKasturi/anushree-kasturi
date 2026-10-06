@@ -11,6 +11,7 @@ const CONFIG = {
   timezone: "Asia/Kolkata",
   email: "anushree.kasturi06@gmail.com",
   github: "AnushreeKasturi",          // live contribution graph
+  avatar: "https://avatars.githubusercontent.com/u/219416439?s=240&v=4",  // by user id, so it follows renames and picture changes
   resume: "",                         // add a link to show resume options
   socials: [
     { label: "GitHub",      url: "https://github.com/AnushreeKasturi" },
@@ -206,6 +207,11 @@ $("#first").textContent = CONFIG.first;
 $("#last").textContent = CONFIG.last;
 $(".hero-name").setAttribute("aria-label", fullName);
 $("#status").textContent = CONFIG.status;
+if (CONFIG.avatar) {
+  $("#avatar").src = CONFIG.avatar;
+  $("#avatar").alt = fullName;
+  $("#avatar-link").href = CONFIG.socials[0]?.url || CONFIG.avatar;
+} else $("#avatar-link").remove();
 $("#tagline").textContent = CONFIG.tagline;
 $("#loc").textContent = CONFIG.location;
 $("#year").textContent = new Date().getFullYear();
@@ -433,7 +439,7 @@ function countUp(el) {
     cv.width = cv.clientWidth * dpr; cv.height = cv.clientHeight * dpr;
     cols = Math.ceil(cv.clientWidth / CW); rows = Math.ceil(cv.clientHeight / CH);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.font = "11px 'Geist Mono', monospace"; ctx.textBaseline = "top";
+    ctx.font = "11px 'JetBrains Mono', monospace"; ctx.textBaseline = "top";
   };
   size(); addEventListener("resize", size);
   animate(hero, 30, t => {
@@ -457,7 +463,7 @@ function splitName() {
   el.innerHTML = [...CONFIG.first].map(c => `<span>${esc(c)}</span>`).join("");
   heroLetters = [...el.children];
 }
-// letters thin out near the cursor (Geist is a variable font, 300–700)
+// letters thin out near the cursor (JetBrains Mono is a variable font, 300–700)
 animate($("#hero"), 60, () => {
   // read all positions first, then write, so we cause one layout per frame instead of one per letter
   const ks = heroLetters.map(s => { const r = s.getBoundingClientRect(), dx = mouse.x - (r.left + r.width / 2), dy = mouse.y - (r.top + r.height / 2); return Math.exp(-(dx * dx + dy * dy) / 16000); });
@@ -815,7 +821,7 @@ const NN = (() => {
       nctx.fillStyle = `rgba(${pos1 ? ACC : BLUE},${0.15 + m * 0.85})`; nctx.fill();
       nctx.strokeStyle = "#333"; nctx.lineWidth = 1; nctx.stroke();
     }));
-    nctx.fillStyle = "#5c5c5c"; nctx.font = "10px 'Geist Mono', monospace"; nctx.textAlign = "center";
+    nctx.fillStyle = "#5c5c5c"; nctx.font = "10px 'JetBrains Mono', monospace"; nctx.textAlign = "center";
     ["input", "hidden 1", "hidden 2", "output"].forEach((s, l) => nctx.fillText(s, pos[l][0][0], h - 1));
   }
   function stats() {
@@ -1334,11 +1340,11 @@ function matrix() {
     cols = Math.max(40, Math.floor(pre.parentElement.clientWidth / cw) - 2);
     const text = CONFIG.first.toUpperCase();
     const cv = document.createElement("canvas"), x = cv.getContext("2d", { willReadFrequently: true });
-    x.font = "700 100px Geist, sans-serif";
+    x.font = "800 100px 'JetBrains Mono', monospace";
     const fs = 100 * (cols * 0.96) / x.measureText(text).width;
     rows = Math.ceil(fs * 0.6 * 0.82) + 2;
     cv.width = cols; cv.height = rows;
-    x.font = `700 ${fs}px Geist, sans-serif`;
+    x.font = `800 ${fs}px 'JetBrains Mono', monospace`;
     x.textAlign = "center"; x.fillStyle = "#fff";
     x.setTransform(1, 0, 0, 0.6, 0, 0); // char cells are ~0.6 as wide as tall
     x.fillText(text, cols / 2, (rows - 1) / 0.6);
